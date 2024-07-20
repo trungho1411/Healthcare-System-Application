@@ -21,10 +21,9 @@ export enum FormFieldType {
     SKELETON = 'skeleton',
 }
 
-export const PatientForm = () => {
+const RegisterForm = ({user} : {user: User}) => {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
-
     const form = useForm<z.infer<typeof UserFormValidation>>({
         resolver: zodResolver(UserFormValidation),
         defaultValues: {
@@ -38,17 +37,13 @@ export const PatientForm = () => {
         setIsLoading(true)
 
         try {
-            const userData = {
-                name,
-                email,
-                phone,
-            };
+            const userData = { name, email, phone };
 
             const user = await createUser(userData);
 
             if (user) router.push(`/patients/${user.$id}/register`)
 
-        } catch (error) {
+        } catch (error: any) {
             console.log(error)
         }
 
@@ -97,4 +92,4 @@ export const PatientForm = () => {
     )
 }
 
-export default PatientForm
+export default RegisterForm
