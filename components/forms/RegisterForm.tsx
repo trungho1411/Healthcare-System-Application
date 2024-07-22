@@ -149,6 +149,15 @@ const RegisterForm = ({ user }: { user: User }) => {
                             <h2 className="sub-header">Medical Information</h2>
                         </div>
                     </section>
+                    <CustomFormField
+                        fieldType={FormFieldType.SELECT}
+                        control={form.control}
+                        name="primaryPhysician"
+                        label="Primary Physician"
+                        placeholder="Select your physician"
+                    >
+                        {['Dr. Gao Chao', 'Dr. Seppo Makinen', 'Dr. Alex Toivio']}
+                    </CustomFormField>
                     <SubmitButton isLoading={isLoading}>
                         Get Started
                     </SubmitButton>
