@@ -83,14 +83,14 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
                         className='ml-2'
                     />
                     <FormControl>
-                        <DatePicker 
-                        selected={field.value} 
-                        onChange={(date) => field.onChange(date)}
-                        dateFormat={dateFormat ?? 'MM/DD/YYYY'}
-                        showTimeSelect={showTimeSelect ?? false}
-                        timeInputLabel='Time:'
-                        wrapperClassName='date-picker'
-                         />
+                        <DatePicker
+                            selected={field.value}
+                            onChange={(date) => field.onChange(date)}
+                            dateFormat={dateFormat ?? 'MM/dd/yyyy'}
+                            showTimeSelect={showTimeSelect ?? false}
+                            timeInputLabel='Time:'
+                            wrapperClassName='date-picker'
+                        />
                     </FormControl>
                 </div>
             )
