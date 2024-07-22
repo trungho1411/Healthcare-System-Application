@@ -161,18 +161,50 @@ const RegisterForm = ({ user }: { user: User }) => {
                         {Doctors.map((doctor) => (
                             <SelectItem key={doctor.name} value={doctor.name}>
                                 <div className="flex cursor-pointer items-center gap-2">
-                                    <Image 
-                                    src={doctor.image}
-                                    width={32}
-                                    height={32}
-                                    alt={doctor.name}
-                                    className="rounded-full border border-dark-500"
+                                    <Image
+                                        src={doctor.image}
+                                        width={32}
+                                        height={32}
+                                        alt={doctor.name}
+                                        className="rounded-full border border-dark-500"
                                     />
                                     <p>{doctor.name}</p>
                                 </div>
                             </SelectItem>
                         ))}
                     </CustomFormField>
+                    <div className="flex flex-col gap-6 xl:flex-row">
+                        <CustomFormField
+                            fieldType={FormFieldType.INPUT}
+                            control={form.control}
+                            name="insuranceProvider"
+                            label="Insurance Provider"
+                            placeholder="Kela"
+                        />
+                        <CustomFormField
+                            fieldType={FormFieldType.INPUT}
+                            control={form.control}
+                            name="insurancePolicyNumber"
+                            label="Insurance Policy Number"
+                            placeholder="141199-6990"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-6 xl:flex-row">
+                        <CustomFormField
+                            fieldType={FormFieldType.TEXTAREA}
+                            control={form.control}
+                            name="allergies"
+                            label="Allergies (if any)"
+                            placeholder="Amoxicillin, lactose,..."
+                        />
+                        <CustomFormField
+                            fieldType={FormFieldType.TEXTAREA}
+                            control={form.control}
+                            name="currentMedication"
+                            label="Current Medication (if any)"
+                            placeholder="Paracetamol 500mg"
+                        />
+                    </div>
                     <SubmitButton isLoading={isLoading}>
                         Get Started
                     </SubmitButton>
