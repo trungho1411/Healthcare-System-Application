@@ -1,5 +1,3 @@
-'use server';
-
 import { ID, Models, Query } from 'node-appwrite';
 import { users } from '../appwrite.config';
 import { parseStringify } from '../utils';
@@ -20,6 +18,7 @@ export const createUser = async (user: CreateUserParams) => {
     );
     console.log({ newUser });
     return parseStringify(newUser);
+
   } catch (error: any) {
     if (error && error?.code === 409) {
       const existingUser = await users.list([
