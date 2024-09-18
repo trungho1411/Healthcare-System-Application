@@ -70,6 +70,7 @@ export const getPatient = async (userId: string) => {
   }
 };
 
+//register patient
 export const registerPatient = async ({
   identificationDocument,
   ...patient
@@ -90,7 +91,7 @@ export const registerPatient = async ({
       ID.unique(),
       {
         identificationDocumentId: file?.$id || null,
-        identificationDocumentUrl: `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file?.$id}/view? project=${PROJECT_ID}`,
+        identificationDocumentUrl: file?.$id ? `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file?.$id}/view??project=${PROJECT_ID}` : null,
         ...patient,
       }
     );
