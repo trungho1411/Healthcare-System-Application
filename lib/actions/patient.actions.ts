@@ -3,17 +3,16 @@
 import { ID, Query } from 'node-appwrite';
 import {
   BUCKET_ID,
+  DATABASE_ID,
   ENDPOINT,
+  PATIENT_COLLECTION_ID,
   PROJECT_ID,
+  databases,
   storage,
   users,
-} from '../appwrite.config';
+} from "../appwrite.config";
 import { parseStringify } from '../utils';
-import {
-  DATABASE_ID,
-  PATIENT_COLLECTION_ID,
-  databases,
-} from '../appwrite.config';
+
 
 import { InputFile } from 'node-appwrite/file';
 

@@ -1,6 +1,6 @@
 import StatCard from '@/components/StatCard'
-import column from '@/components/table/column'
-import DataTable from '@/components/table/DataTable'
+import {columns} from '@/components/table/column'
+import {DataTable} from '@/components/table/DataTable'
 import { getRecentAppointmentList } from '@/lib/actions/appointment.actions'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -51,7 +51,7 @@ const Admin = async() => {
                     />
                 </section>
 
-                <DataTable columns={column} data={appoinments.documents}/>
+                <DataTable columns={columns} data={appoinments.documents}/>
 
             </main>
         </div>

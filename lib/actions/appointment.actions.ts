@@ -100,7 +100,6 @@ export const sendSMSNotification = async (userId: string, content: string) => {
 export const updateAppointment = async ({
   appointmentId,
   userId,
-  timeZone,
   appointment,
   type,
 }: UpdateAppointmentParams) => {
@@ -110,7 +109,8 @@ export const updateAppointment = async ({
       DATABASE_ID!,
       APPOINTMENT_COLLECTION_ID!,
       appointmentId,
-      appointment
+      appointment,
+      timeZone
     );
 
     if (!updatedAppointment) throw Error;
