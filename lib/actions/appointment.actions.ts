@@ -1,17 +1,17 @@
-"use server";
+'use server';
 
-import { revalidatePath } from "next/cache";
-import { ID, Query } from "node-appwrite";
+import { revalidatePath } from 'next/cache';
+import { ID, Query } from 'node-appwrite';
 
-import { Appointment } from "@/types/appwrite.types";
+import { Appointment } from '@/types/appwrite.types';
 
 import {
   APPOINTMENT_COLLECTION_ID,
   DATABASE_ID,
   databases,
   messaging,
-} from "../appwrite.config";
-import { formatDateTime, parseStringify } from "../utils";
+} from '../appwrite.config';
+import { formatDateTime, parseStringify } from '../utils';
 
 //  CREATE APPOINTMENT
 export const createAppointment = async (
@@ -25,10 +25,10 @@ export const createAppointment = async (
       appointment
     );
 
-    revalidatePath("/admin");
+    revalidatePath('/admin');
     return parseStringify(newAppointment);
   } catch (error) {
-    console.error("An error occurred while creating a new appointment:", error);
+    console.error('An error occurred while creating a new appointment:', error);
   }
 };
 
@@ -38,7 +38,7 @@ export const getRecentAppointmentList = async () => {
     const appointments = await databases.listDocuments(
       DATABASE_ID!,
       APPOINTMENT_COLLECTION_ID!,
-      [Query.orderDesc("$createdAt")]
+      [Query.orderDesc('$createdAt')]
     );
 
     const initialCounts = {
@@ -50,13 +50,13 @@ export const getRecentAppointmentList = async () => {
     const counts = (appointments.documents as Appointment[]).reduce(
       (acc, appointment) => {
         switch (appointment.status) {
-          case "scheduled":
+          case 'scheduled':
             acc.scheduledCount++;
             break;
-          case "pending":
+          case 'pending':
             acc.pendingCount++;
             break;
-          case "cancelled":
+          case 'cancelled':
             acc.cancelledCount++;
             break;
         }
@@ -74,7 +74,7 @@ export const getRecentAppointmentList = async () => {
     return parseStringify(data);
   } catch (error) {
     console.error(
-      "An error occurred while retrieving the recent appointments:",
+      'An error occurred while retrieving the recent appointments:',
       error
     );
   }
@@ -92,7 +92,7 @@ export const sendSMSNotification = async (userId: string, content: string) => {
     );
     return parseStringify(message);
   } catch (error) {
-    console.error("An error occurred while sending sms:", error);
+    console.error('An error occurred while sending sms:', error);
   }
 };
 
@@ -109,22 +109,26 @@ export const updateAppointment = async ({
       DATABASE_ID!,
       APPOINTMENT_COLLECTION_ID!,
       appointmentId,
-      appointment,
+      appointment
     );
 
     if (!updatedAppointment) throw Error;
 
     const smsMessage = `This is a message from Carepulse.
-    ${type === 'schedule' ? `Your appointment has been scheduled for ${formatDateTime(appointment.schedule!).dateTime} with Dr. ${appointment.primaryPhysician}`
-      : `We are sorry to inform you that your appointment has been cancelled for the reason of: ${appointment.cancellationReason}`
-    }`
-    
+    ${
+      type === 'schedule'
+        ? `Your appointment has been scheduled for ${
+            formatDateTime(appointment.schedule!).dateTime
+          } with Dr. ${appointment.primaryPhysician}`
+        : `We are sorry to inform you that your appointment has been cancelled for the reason of: ${appointment.cancellationReason}`
+    }`;
+    // F7L1ZXM4DU7468NY5MQVFDGY (recovery twilio sms)
     await sendSMSNotification(userId, smsMessage);
 
-    revalidatePath("/admin");
+    revalidatePath('/admin');
     return parseStringify(updatedAppointment);
   } catch (error) {
-    console.error("An error occurred while scheduling an appointment:", error);
+    console.error('An error occurred while scheduling an appointment:', error);
   }
 };
 
@@ -140,7 +144,7 @@ export const getAppointment = async (appointmentId: string) => {
     return parseStringify(appointment);
   } catch (error) {
     console.error(
-      "An error occurred while retrieving the existing patient:",
+      'An error occurred while retrieving the existing patient:',
       error
     );
   }
