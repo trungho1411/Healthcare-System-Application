@@ -2,9 +2,12 @@ import Image from "next/image";
 
 import { AppointmentForm } from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actions";
+import { useState } from "react";
 
 const Appointment = async ({ params: { userId } }: SearchParamProps) => {
   const patient = await getPatient(userId);
+  const [open, setOpen] = useState(false);
+
 
   return (
     <div className="flex h-screen max-h-screen">
@@ -21,6 +24,7 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
           <AppointmentForm
             patientId={patient?.$id}
             userId={userId}
+            setOpen={setOpen}
             type="create"
           />
 
