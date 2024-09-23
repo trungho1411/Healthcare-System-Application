@@ -1,6 +1,6 @@
 <div align="center"> 
   <br />
-  <img src="[https://github.com/adrianhajdin/healthcare/assets/151519281/a7dd73b6-93de-484d-84e0-e7f4e299167b](https://github.com/trungho1411/Healthcare-System-Application/issues/1#issue-2543210592)" alt="Project Banner">
+  <img src="public/assets/images/onboarding-img.png" alt="Project Banner">
   <br />
 
   <div>
