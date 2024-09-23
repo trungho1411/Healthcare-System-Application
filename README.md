@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center"> 
+  <br />
+  <img src="public/assets/images/onboarding-img.png" alt="Project Banner">
+  <br />
 
-## Getting Started
+  <div>
+    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
+    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+    <img src="https://img.shields.io/badge/-Appwrite-black?style=for-the-badge&logoColor=white&logo=appwrite&color=FD366E" alt="appwrite" />
+  </div>
 
-First, run the development server:
+  <h3 align="center">A HealthCare Management System</h3>
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📋 <a name="table">Table of Contents</a>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. 📰 [Introduction](#introduction)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔖 [Features](#features)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## <a name="introduction">📰 Introduction</a>
+A healthcare patient management app built with Next.js that enables patients to effortlessly register, book, and manage doctor appointments. It includes administrative tools for scheduling, confirming, and canceling appointments, along with SMS notifications for streamlined communication.
 
-## Learn More
+## <a name="tech-stack">⚙️ Tech Stack</a>
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js
+- Appwrite
+- Typescript
+- TailwindCSS
+- ShadCN
+- Twilio
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## <a name="features">🔖 Features</a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+▸ **Register as a Patient**: Users can sign up and create a personal profile as a patient.
 
-## Deploy on Vercel
+▸ **Book a New Appointment with Doctor**: Patients can schedule appointments with doctors at their convenience and can book multiple appointments.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+▸ **Manage Appointments on Admin Side**: Administrators can efficiently view and handle all scheduled appointments.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+▸ **Confirm/Schedule Appointment from Admin Side**: Admins can confirm and set appointment times to ensure they are properly scheduled.
+
+▸ **Cancel Appointment from Admin Side**: Administrators have the ability to cancel any appointment as needed.
+
+▸ **Send SMS on Appointment Confirmation**: Patients receive SMS notifications to confirm their appointment details.
+
+▸ **Complete Responsiveness**: The application works seamlessly on all device types and screen sizes.
+
+▸ **File Upload Using Appwrite Storage**: Users can upload and store files securely within the app using Appwrite storage services.
+
